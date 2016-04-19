@@ -22,6 +22,7 @@ $('#textBox').keydown(function() {
 });
 
 $('#textBox').keyup(function() {
+  $(this).attr("placeholder", "Everything's gone");
   clearTimeout(typingTimer);
   typingTimer = setTimeout(function() {
     $("p.typingStatus").html("deleting...");
@@ -32,7 +33,8 @@ $('#textBox').keyup(function() {
 
   deleteTimer = setTimeout(function() {
     var txt = $("#textBox");
-    for (var j = 1; j < txt.val().length; j++) {
+    var curlength = txt.val().length - 1;
+    for (var j = 0; j < txt.val().length; j++) {
       if (typed) break;
       deleter[j] = setTimeout(function() {
         if (!typed && txt.val().length > 0) txt.val(txt.val().slice(0,-1));
