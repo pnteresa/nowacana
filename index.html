@@ -8,26 +8,26 @@
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
     <script src="https://code.jquery.com/jquery-2.2.3.min.js"></script>
+    <script src="js/home.js"></script>
   </head>
   <body>
+<a href="https://github.com/pnteresa/nowacana"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
+    <!-- <home> -->
     <section class="page-header">
       <h1 class="project-name">nowacana</h1>
-      <h2 class="project-tagline">Type under pressure</h2>
-      <a href="https://github.com/pnteresa/nowacana" class="btn">View on GitHub</a>
+      <h2 class="project-tagline">Type under pressure. If you stop typing, you'll lose your progress.</h2>
+      <h3 class="project-tagline">Inspired by <a href="http://hailoverman.com/flowstate">Flowstate</a></h3>
+
+      <button class="btn start">Start!</button>
     </section>
-
+    <!-- </home> -->
+    <section class="main-content main-ed-cont">
+      <div id="ext" class="main-editor">
+      </div>
+    </section>
     <section class="main-content">
-      <h3>
-<a id="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Welcome!</h3>
-
-<p>Type. If you stop typing, you'll lose your progress.</p>
-<p>Inspired by <a href="http://hailoverman.com/flowstate">Flowstate</a></p>
-
-<h3>
-<div id="ext">
-</div>
-
       <footer class="site-footer">
         <span class="site-footer-owner"><a href="https://github.com/pnteresa/nowacana">nowacana</a> is maintained by <a href="https://github.com/pnteresa">pnteresa</a>.</span>
 
@@ -36,38 +36,52 @@
 
     </section>
 
-  <script type="text/javascript">
-    var http;
-    function createRequestObject() {
-        var obj;
-        var browser = navigator.appName;
-        if (browser == "Microsoft Internet Explorer") {
-            obj = new ActiveXObject("Microsoft.XMLHTTP");
-        } else {
-            obj = new XMLHttpRequest();
+
+      <script>
+        $( document ).ready(function() {
+          $(".main-ed-cont").hide();
+          $(".start").click(function() {
+            $(".main-ed-cont").show();
+            $(".page-header").slideFadeToggle();
+          });
+          $(".back").click(function() {
+            $(".main-ed-cont").hide();
+            $(".page-header").slideFadeToggle();
+          });
+        });
+      </script>
+      <script type="text/javascript">
+        var http;
+        function createRequestObject() {
+            var obj;
+            var browser = navigator.appName;
+            if (browser == "Microsoft Internet Explorer") {
+                obj = new ActiveXObject("Microsoft.XMLHTTP");
+            } else {
+                obj = new XMLHttpRequest();
+            }
+            return obj;
         }
-        return obj;
-    }
 
-    function sendReq(req) {   
-        http = createRequestObject();
-        http.open('get', req);
-        http.onreadystatechange = handleResponse;
-        http.send(null);
-    }
-
-    function handleResponse() {    
-        if (http.readyState == 4) {
-            var response = http.responseText;
-            document.getElementById('ext').innerHTML=response;
+        function sendReq(req) {   
+            http = createRequestObject();
+            http.open('get', req);
+            http.onreadystatechange = handleResponse;
+            http.send(null);
         }
-    }
 
-     sendReq('https://rawgit.com/pnteresa/nowacana/master/index.html');
-    </script>
-    <script>
-    $.getScript("https://cdn.rawgit.com/pnteresa/nowacana/master/scripts/script.js", function () {
-    });
-    </script>
+        function handleResponse() {    
+            if (http.readyState == 4) {
+                var response = http.responseText;
+                document.getElementById('ext').innerHTML=response;
+            }
+        }
+
+         sendReq('https://rawgit.com/pnteresa/nowacana/master/index.html');
+        </script>
+        <script>
+        $.getScript("https://cdn.rawgit.com/pnteresa/nowacana/master/scripts/script.js", function () {
+        });
+        </script>
   </body>
 </html>
