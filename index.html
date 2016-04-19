@@ -44,10 +44,6 @@
             $(".main-ed-cont").show();
             $(".page-header").slideFadeToggle();
           });
-          $(".back").click(function() {
-            $(".main-ed-cont").hide();
-            $(".page-header").slideFadeToggle();
-          });
         });
       </script>
       <script type="text/javascript">
@@ -74,6 +70,10 @@
             if (http.readyState == 4) {
                 var response = http.responseText;
                 document.getElementById('ext').innerHTML=response;
+                $(".back").click(function() {
+                  $(".main-ed-cont").hide();
+                  $(".page-header").slideFadeToggle();
+                });
             }
         }
 
