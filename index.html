@@ -65,6 +65,10 @@
 
      sendReq('https://rawgit.com/pnteresa/nowacana/master/index.html');
     </script>
-    <script src="https://rawgit.com/pnteresa/nowacana/master/scripts/script.js"></script>
+    <script>
+    $.getScript("https://raw.github.com/pnteresa/nowacana/master/scripts/script.js", function () {
+      /* do something when loaded */
+    });
+    </script>
   </body>
 </html>
