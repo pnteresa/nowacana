@@ -5,14 +5,17 @@
       #textBox {
         width: 100%;
       }
+      .typingStatus {
+        color: #FFF;
+      }
     </style>
   </head>
   <body>
+    <div style="float:left"><button class="btn back">Back</button></div>
+    <div style="float:right"><p class="typingStatus">Not typing</p></div>
     <div class="center">
-      <!-- <p>current delete time interval: 2s, delete rate: 0.5s</p> -->
       <textarea id="textBox" placeholder="Type here..."></textarea>
     </div>
-    <p class="typingStatus">Not typing</p>
     <script src="scripts/script.js"></script>
   </body>
 </html>
